@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent ID Daily Check-in</title>
+<meta name="description" content="Daily on-chain check-in for Agent ID holders on BNB Chain. No funds, no rewards — just your streak.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>Agent ID Daily Check-in</h1>
+    <p class="sub">One check-in per day, on-chain, for Agent ID holders. Your streak is
+    your record — no tokens, no prizes, no funds held. You only pay your own gas.</p>
+  </header>
+
+  <section class="card" id="wallet-card">
+    <h2>1 · Connect your wallet</h2>
+    <p>Connect with your own wallet (e.g. MetaMask) in this browser. There is no
+    QR login here, no pairing code, and nothing is ever stored on a server —
+    the site only talks to the wallet you already have.</p>
+    <div class="row">
+      <button id="btn-connect">Connect wallet</button>
+      <button id="btn-network" class="secondary" disabled>Switch to BNB Testnet</button>
+    </div>
+    <p id="wallet-status" class="status">Not connected.</p>
+  </section>
+
+  <section class="card" id="agentid-card">
+    <h2>2 · Agent ID check</h2>
+    <p>Only addresses holding an Agent ID (<code>name.ai</code>) can check in.
+    Holding is verified on-chain by reading the Agent ID registry contract.</p>
+    <p id="agentid-status" class="status">Connect your wallet to check.</p>
+  </section>
+
+  <section class="card" id="checkin-card">
+    <h2>3 · Check in today</h2>
+    <p>One check-in per UTC day. Checking in on consecutive days grows your
+    streak; missing a day resets it to 1 on your next check-in.</p>
+    <div class="row">
+      <button id="btn-checkin" disabled>Check in</button>
+    </div>
+    <p id="checkin-status" class="status">—</p>
+    <p id="tx-link" class="tx"></p>
+  </section>
+
+  <section class="card" id="stats-card">
+    <h2>Your streak</h2>
+    <dl class="stats">
+      <div><dt>Current streak</dt><dd id="stat-streak">—</dd></div>
+      <div><dt>Longest streak</dt><dd id="stat-longest">—</dd></div>
+      <div><dt>Total check-ins</dt><dd id="stat-total">—</dd></div>
+      <div><dt>Last check-in (UTC day)</dt><dd id="stat-last">—</dd></div>
+    </dl>
+  </section>
+
+  <section class="card" id="board-card">
+    <h2>Leaderboard · Top 10 streaks</h2>
+    <p class="muted">Streaks shown are effective streaks: a streak counts as 0 once more
+    than one UTC day has passed since its owner's last check-in. Expired
+    streaks are pruned from the board on the next check-in.</p>
+    <table id="board">
+      <thead><tr><th>#</th><th>Address</th><th>Streak</th></tr></thead>
+      <tbody><tr><td colspan="3">Connect your wallet to load the board.</td></tr></tbody>
+    </table>
+    <p><button id="btn-refresh" class="secondary">Refresh</button></p>
+  </section>
+
+  <footer>
+    <p>Contract: <a id="link-contract" href="#" target="_blank" rel="noopener">not deployed yet</a>
+    · Agent ID registry: <a id="link-registry" href="#" target="_blank" rel="noopener">not set</a></p>
+    <p class="muted">This dApp holds no funds and promises no returns. Never share a seed
+    phrase, private key, or pairing code with any website — this one will never ask for them.</p>
+  </footer>
+</main>
+
+<script src="vendor/ethers.umd.min.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
