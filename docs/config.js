@@ -3,26 +3,26 @@
 // HOW TO FILL THIS IN
 // - After deploying (see scripts/deploy.js), paste the deployed contract
 //   addresses below. `deploy.js` writes this file for you automatically.
-// - CHAIN_ID 97 is BNB testnet. For a mainnet deployment, change CHAIN_ID
-//   to 56 and set REGISTRY to the real Agent ID contract
-//   0x60b9262456de011f7d15a54cdd8c48baaa8b022f, then update the RPC URLs
-//   and the BscScan links below.
+// - Mainnet deployment (chainId 56) with the real Agent ID registry
+//   0x60b9262456de011f7d15a54cdd8c48baaa8b022f — see
+//   deployments/mainnet.json. Testnet settings were chainId 97, registry
+//   0xC6F8e04642eaD937c62f6E25186F36132bb92584 (mock).
 //
 // NOTE: no secrets ever belong in this file. Contract addresses are public.
 const CONFIG = {
-  // BNB testnet (chainId 97). Change to 56 for BNB mainnet.
-  CHAIN_ID: 97,
-  CHAIN_NAME: "BNB Smart Chain Testnet",
-  CHAIN_CURRENCY: "tBNB",
-  // Public BSC testnet RPC endpoints (no key needed).
+  // BNB mainnet (chainId 56).
+  CHAIN_ID: 56,
+  CHAIN_NAME: "BNB Smart Chain",
+  CHAIN_CURRENCY: "BNB",
+  // Public BSC mainnet RPC endpoints (no key needed).
   RPC_URLS: [
-    "https://data-seed-prebsc-1-s1.binance.org:8545/",
-    "https://data-seed-prebsc-2-s1.binance.org:8545/",
-    "https://bsc-testnet.publicnode.com",
+    "https://bsc-dataseed.binance.org/",
+    "https://bsc-dataseed1.defibit.io/",
+    "https://bsc.publicnode.com",
   ],
-  // Fill in after deployment — see deployments/testnet.json.
-  CHECKIN_CONTRACT: "0x79f146f49f43d9dbddC67EE13fc690FB80b21C27",
-  AGENT_ID_REGISTRY: "0xC6F8e04642eaD937c62f6E25186F36132bb92584",
-  // BscScan testnet base URL for transaction / address links.
-  BSCSCAN_BASE: "https://testnet.bscscan.com",
+  // Mainnet deployment — see deployments/mainnet.json.
+  CHECKIN_CONTRACT: "0xf68D075FCFA4d6C47F115685ec1D2Aae0E036D8b",
+  AGENT_ID_REGISTRY: "0x60b9262456de011f7d15a54cdd8c48baaa8b022f",
+  // BscScan base URL for transaction / address links.
+  BSCSCAN_BASE: "https://bscscan.com",
 };
